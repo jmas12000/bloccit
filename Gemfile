@@ -17,7 +17,8 @@
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
  end
- 
+ #Pry install, a better alternative to rails c IRB
+ gem 'pry-rails', :group => :development
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
