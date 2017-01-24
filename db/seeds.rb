@@ -14,7 +14,9 @@ posts = Post.all
     body: RandomData.random_paragraph
   )
 end
- 
+
+Post.find_or_create_by!(title: "The only one with this title", body: "Test body")
+Post.find_or_create_by!(title: "The only one with this title").comments.find_or_create_by!(body: "Unique comments body")
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
