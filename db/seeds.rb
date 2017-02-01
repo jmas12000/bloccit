@@ -14,7 +14,13 @@ posts = Post.all
     body: RandomData.random_paragraph
   )
 end
- 
+
+p = Post.find_or_create_by!(title: "The only one with this title", body: "Test body") 
+
+if p.comments.empty?
+  Comment.create(:body => 'Sample comment', post: p)
+end    
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
