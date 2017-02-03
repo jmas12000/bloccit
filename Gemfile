@@ -31,3 +31,5 @@
  gem 'turbolinks'
  # bootstrap-sass is used to build some awesome projects all over the web
  gem 'bootstrap-sass'
+ #BCrypt takes a plain text password and turns it into an unrecognizable string of characters using a hashing algorithm such as MD5.
+ gem 'bcrypt'
