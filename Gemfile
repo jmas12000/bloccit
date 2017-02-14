@@ -33,3 +33,5 @@
  gem 'bootstrap-sass'
  #BCrypt takes a plain text password and turns it into an unrecognizable string of characters using a hashing algorithm such as MD5.
  gem 'bcrypt'
+ #The Figaro gem provides an elegant solution for handling sensitive data with environment variables.
+ gem 'figaro', '1.0'
