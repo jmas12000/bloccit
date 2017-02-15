@@ -1,0 +1,5 @@
+New favorite for "<%= @post.title %>", You will now receive updates when it's commented on
+ 
+By: <%= @post.user.name %>
+ 
+Visit online at: <%= topic_post_url(@post.topic, @post) %>
