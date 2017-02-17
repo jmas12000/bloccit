@@ -1,0 +1,27 @@
+<div>
+  <% if @user.posts.empty? %>
+    <h4><strong><%= @user.name %> has no submitted posts</strong></h4>
+  <% else %>
+    <h2>Posts</h2>
+    <%= render @user.posts %>   
+  <% end %>
+</div>
+<div>
+  <% if @user.comments.empty? %>
+    <h4><strong><%= @user.name %> has no submitted comments</strong></h4>  
+  <% else %>
+    <h2>Comments</h2>
+    <%= render @user.comments %>
+  <% end %>
+</div>
+<div>
+  <h2>Favorite Posts</h2>
+  <% @user.favorites.each do |favorite| %>
+    <strong><%= link_to favorite.post.title, topic_post_path(favorite.post.topic, favorite.post) %></strong>
+    <% emails = favorite.post.user.email %>
+    <%= image_tag @user.user_avatar_url(28, emails), class: 'avatar' %>
+    <%= pluralize(favorite.post.points, 'Vote') %>,
+    <%= pluralize(favorite.post.comments.count, 'Comment') %> 
+    <br>
+  <% end %>
+</div>

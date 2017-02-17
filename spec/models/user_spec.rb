@@ -105,4 +105,14 @@ RSpec.describe User, type: :model do
       expect(known_user.avatar_url(48)).to eq(expected_gravatar)
     end
   end
+    
+  describe ".user_avatar_url" do
+    let(:fav_user) { create(:user, email: "blochead@bloc.io") }
+    let(:email) { fav_user.email}
+    
+    it "returns the proper Gravatar url for a favorite posts user email" do
+      expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"
+      expect(user.user_avatar_url(48, email)).to eq(expected_gravatar)
+    end
+  end     
 end

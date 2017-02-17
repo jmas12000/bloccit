@@ -24,5 +24,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.visible_to(current_user)
+    @favorites = current_user.favorites
+  end
+  
+  def favorite_for(post)
+    @user = User.find(params[:id])
+    @posts = Post.joins(:favorites).where('favorites.user_id = ?', @user.id)
   end
 end
